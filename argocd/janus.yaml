@@ -3,7 +3,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: janus-idp
-  namespace: janus-argocd
+  namespace: argocd-backstage
 spec:
   project: default
   sources:
