@@ -6,16 +6,13 @@ metadata:
   namespace: argocd-backstage
 spec:
   project: default
-  sources:
-    - chart: janus-idp/backstage
-      repoURL: https://janus-idp.github.io/helm-backstage
-      helm:
-        releaseName: backstage
-        valueFiles: 
-          - $values/charts/janus-idp_backstage/values.yaml
-    - repoURL: 'https://github.com/mikesteam/backstage-deploy'
-      targetRevision: main
-      ref: values
+  source:
+    chart: janus-idp/backstage
+    repoURL: https://janus-idp.github.io/helm-backstage
+    targetRevision: 2.6.0
+    helm:
+      releaseName: backstage
+      values: 
   destination:
     server: "https://kubernetes.default.svc"
     namespace: benbackstage
