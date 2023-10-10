@@ -5,7 +5,7 @@ metadata:
   name: janus-idp
   namespace: janus-argocd
 spec:
-  project: benbackstage
+  project: default
   sources:
     - chart: janus-idp/backstage
       repoURL: https://janus-idp.github.io/helm-backstage
@@ -18,7 +18,7 @@ spec:
       ref: values
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: janus-argocd
+    namespace: benbackstage
   syncPolicy:
     automated:
       prune: true
