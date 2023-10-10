@@ -3,7 +3,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: janus-idp
-  namespace: benbackstage
+  namespace: janus-argocd
 spec:
   project: benbackstage
   sources:
@@ -18,7 +18,7 @@ spec:
       ref: values
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: benbackstage
+    namespace: janus-argocd
   syncPolicy:
     automated:
       prune: true
