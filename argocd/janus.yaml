@@ -1,0 +1,25 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: janus-idp
+  namespace: benbackstage
+spec:
+  project: benbackstage
+  sources:
+    - chart: janus-idp/backstage
+      repoURL: https://janus-idp.github.io/helm-backstage
+      helm:
+        releaseName: backstage
+        valueFiles: 
+          - $values/charts/janus-idp_backstage/values.yaml
+    - repoURL: 'https://github.com/mikesteam/backstage-deploy'
+      targetRevision: main
+      ref: charts/janus-idp_backstage/values.yaml
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: benbackstage
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
