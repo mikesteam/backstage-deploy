@@ -15,7 +15,7 @@ spec:
           - $values/charts/janus-idp_backstage/values.yaml
     - repoURL: 'https://github.com/mikesteam/backstage-deploy'
       targetRevision: main
-      ref: charts/janus-idp_backstage/values.yaml
+      ref: values
   destination:
     server: "https://kubernetes.default.svc"
     namespace: benbackstage
